@@ -19,8 +19,32 @@
 			text-decoration: none;
 		}
 
+        p.b{
+            padding-left: 20px;
+        }
+
+        div.d{
+            text-align: center;
+            font-size: small;
+            color: #333;
+        }
+
+        div.c{
+            padding-left: 20px;
+            font-size: large;
+        }
+
+        h1{
+            padding-left: 20px;
+        }
+
         a.a{
             color: #ffffff;
+        }
+
+        a.b{
+            color: #0090d8;
+            padding-left: 20px;
         }
 		
 		ul {
@@ -29,6 +53,9 @@
 		    padding: 0;
 		    overflow: hidden;
 		    background-color: #333;
+            position: fixed;
+            top: 0;
+            width: 100%;
 		}
 		
 		li {
@@ -71,6 +98,10 @@
 		.dropdown:hover .dropdown-content {
 		    display: block;
 		}
+
+        footer{
+            background: #eeeeee;
+        }
         </style>
     </head>
     <body>
@@ -82,8 +113,29 @@
         <br>
         <br>
         <h1>下载zzChat</h1>
-        <p>zzChat内包含了许多奇奇怪怪的功能，且都与聊天无关。</p>
+        <p class="b">zzChat内包含了一些奇奇怪怪的功能，且都与聊天无关。</p>
+        <div class="c"><strong>Android</strong></div>
+        <a class="b" href="app-release.apk" download="app-release.apk">zzChat v2.10 for Android(x86,ARM)</a>
+        <br>
+        <br>
+        <div class="c"><strong>Chrome OS</strong></div>
+        <a class="b">暂未推出</a>
+        <br>
         <br>
         <h1>下载zzChat Lite</h1>
+        <p class="b">zzChat Lite中没有任何附加项，仅保留最核心的聊天功能。当然，它的大小只有不到2MB。</p>
+        <div class="c"><strong>Android</strong></div>
+        <a class="b" href="1.apk" download="1.apk">zzChat Lite v2.10 for Android(x86,ARM)</a>
+        <br>
+        <br>
+        <h1>更新日志</h1>
+        <a class="b" href="#">更新日志发布页（未开放）</a>
+        <br>
+        <br>
     </body>
+    <footer>
+        <br>
+        <div class="d">©Copyright 2017-2022 GS Team</div>
+        <br>
+    </footer>
 </html>
