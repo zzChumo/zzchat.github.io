@@ -24,6 +24,16 @@
             padding-right: 20px;
         }
 
+        div.a{
+            text-align: center;
+            color: #ff3333;
+            background: #ffaaaa;
+            border: 4px solid #ff3333;
+            border-radius: 40px;
+            margin: 10px 200px;
+            padding: 15px 30px 30px;
+        }
+
         div.d{
             text-align: center;
             font-size: small;
@@ -116,16 +126,22 @@
     <body>
         <ul>
             <li><a href="#">zzChat</a></li>
+            <li><a href="#1">公告</a></li>
+            <li><a href="#2">下载</a></li>
         </ul>
         <iframe src="index1.html" frameborder="0" width="100%" height="500"><p class="a">请使用Google Chrome或Mozilla Firefox打开。</p></iframe>
         <br>
         <br>
         <br>
-        <h1>公告</h1>
-        <a class="b" onclick="f1()">点击查看</a>
+        <h1>公告</h1><a name="1"></a>
+        <div class="a">
+            <div class="c"><strong>警告</strong></div>
+            <br>
+            <div class="d">我们发现了一个漏洞，请尽快安装zzChat 2.12版本更新以恢复正常使用！</div>
+        </div>
         <br>
         <br>
-        <h1>下载zzChat</h1>
+        <h1>下载zzChat</h1><a name="2"></a>
         <p class="b">zzChat内包含了一些奇奇怪怪的功能，且都与聊天无关。</p>
         <div class="c"><strong>Android</strong></div>
         <a class="b" href="app-release.apk" download="app-release.apk">zzChat v2.12 for Android(x86,ARM)</a>
