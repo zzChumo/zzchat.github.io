@@ -3,15 +3,12 @@
   "short_name": "zzChat Premium",
   "descriptions": "Chrome PWA版本的zzChat Premium。",
   "start_url": "https://zzchumo.github.io/zzChat-Online/start.html",
-  "display": "minimal-ui",
-  "scope": "https://zzchumo.github.io/zzChat-Online/start.html",
   "theme_color": "#555555",
   "icons": [
     {
       "src": "icon-512.png",
       "type": "image/png",
-      "sizes": "512x512",
-      "purpose": "any"
+      "sizes": "512x512"
     }
   ]
 }
