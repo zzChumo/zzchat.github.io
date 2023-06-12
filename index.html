@@ -1,273 +1,401 @@
+<!--Copyright 2023 zzchumo
+All rights reserved.(逃-->
 <!DOCTYPE html>
 <meta charset="utf-8">
-<meta name="theme-color" content="#333333">
-<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+<meta name="theme-color" content="#00ccaa"><!--浏览器标题栏颜色，仅对Chrome Mobile，Chrome PWA（电脑版），微信小程序和其他支持该标签的浏览器有效。-->
+<meta name="viewport"
+    content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
 <html>
-    <head>
-        <title>zzChat</title>
-        <style>
-            body{
-                font-family: "Google Sans";
-                margin: 0;
-		letter-spacing: 2px;
-            }
 
-            p.a{
-                font-size: large;
-            }
-            
-            a{
-			text-decoration: none;
-		}
-
-        p.b{
-            padding-left: 20px;
-            padding-right: 20px;
-        }
-
-        div.a{
-            text-align: center;
-            color: #ff3333;
-            background: #ffaaaa;
-            border: 4px solid #ff3333;
-            border-radius: 40px;
-            margin: 10px 20px;
-            padding: 15px 30px 30px;
-        }
-
-        div.b{
-            text-align: center;
-            color: #3333ff;
-            background: #aaaaff;
-            border: 2px solid #3333ff;
-            border-radius: 20px;
-            margin: 10px 20px;
-            padding: 15px 30px 30px;
-	box-shadow: 0px 3px  3px #00000066;
-        }
-
-        div.d{
-            text-align: center;
-            font-size: small;
-            color: #333;
-        }
-
-        div.c{
-            padding-left: 20px;
-            padding-right: 20px;
-            font-size: large;
-        }
-
-        div.e{
-            color: #333333;
-        }
-
-        h1{
-            padding-left: 20px;
-            padding-right: 20px;
-        }
-
-        a.a{
-            color: #ffffff;
-        }
-
-        a.b{
-            color: #0090d8;
-            padding-left: 20px;
-            padding-right: 20px;
-        }
-	
-		@font-face {
-                font-family: 'Material Icons';
-                font-style: normal;
-                font-weight: 400;
-                src: url(https://fonts.gstatic.com/s/materialicons/v127/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');
-            }
-
-            @font-face{
-                font-family: 'Google Sans';
-                src: url(https://fonts.gstatic.com/s/googlesans/v42/4UasrENHsxJlGDuGo1OIlJfC6l_24rlCK1Yo_Iqcsih3SAyH6cAwhX9RPjIUvQ.woff2);
-            }
-		
-		    ul {
-    		    list-style-type: none;
-	    	    margin: 0;
-		        padding: 0;
-		        overflow: hidden;
-    		    background-color: #333;
-                position: fixed;
-                top: 0;
-                width: 100%;
-                box-shadow: 0px 3px  3px #00000066;
-                letter-spacing: 0px;
-                }
-		
-		    li {
-		        float: left;
-		    }
-		
-		    li a, .dropbtn {    /*注意：如果你使用中文标题，请将下文li标签中a标签中的class属性删除，使用英文标题请忽略此注释*/
-    		    display: inline-block;
-	    	    color: white;
-		        text-align: center;
-		        padding: 14px 15px;
-    		    text-decoration: none;
-    		    font-size: 19px;
-			border-radius: 50px;
-	    	}
-
-            a.material-iconstop {   /*Material Design图标支持（仅标题栏）*/
-                font-family: 'Material Icons';
-                display: inline-block;
-	    	    color: white;
-	    	    font-size: 24px;    /*如标题栏内包含中文则需要将此项改为26px*/
-		        text-align: center;
-		        padding: 16px 15px;
-    		    text-decoration: none;
-                border-radius: 50px
-            }
-
-            a.top {
-    		    display: inline-block;
-	    	    color: white;
-	    	    font-size: 19px;
-		        text-align: center;
-		        padding: 16px 15px;
-    		    text-decoration: none;
-		    border-radius: 50px;
-	    	}
-		
-    		li a:hover, .dropdown:hover, .dropbtn {
-	    	    background-color: #555;
-		    }
-
-            a.material-iconstop:hover{
-                background-color: #555;
-            }
-
-            a.menu{
-                border-radius: 50px;
+<head>
+    <noscript>WARN: YOU NOT OPENED JACASCRIPT!!!</noscript><!--zcm:? cmd：有的人会关js加入网站，这是一个特殊的标签-->
+    <link rel="stylesheet" href="mdui.css">
+    <title>zzChat App | 主页</title>
+    <!--cmd：看起来可以啊，这个分割--><!--zcm：你们能看到我bash吗 cmd：看得见啊，但是不能控制 zcm：妈的我pacman挂了 我用liveserver吧-->
+    <style>
+        @media screen and (max-width:800px) {
+            p {
                 padding-left: 20px;
                 padding-right: 20px;
             }
+        }
 
-            a.menu:hover{
-                background-color: #555;
+        @media screen and (min-width:800px) {
+            p {
+                padding-left: 50px;
+                padding-right: 50px;
             }
-		
-    		.dropdown {
-	    	    display: inline-block;
-		    }
-		
-		    .dropdown-content {
-    		    display: none;
-	    	    position: absolute;
-		        background-color: #f9f9f9;
-		        min-width: 160px;
-    		    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    		    border-radius: 20px;
-	    	}
-		
-		    .dropdown-content a {
-		        color: #333;
-    		    padding: 12px 16px;
-	    	    text-decoration: none;
-		        display: block;
-                font-size: 15px;
-                border-radius: 20px;
-    		}
-		
-	    	.dropdown-content a:hover {background-color: #f1f1f1}
-		
-		    .dropdown:hover .dropdown-content {
-    		    display: block;
-	    	}
+        }
 
-            a{
-			    text-decoration: none;
-                transition: all 0.3s linear;
-		    }
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            padding-left: 15px;
+            margin-bottom: 35px;
+            border-left: #607d8b solid 7px;
+            /*cmd：6，全部嵌边是不是*/
+        }
 
-            footer{
-                background: #eeeeee;
-            }
+        /*
+        cmd：3.zcm的css看起来非常礼貌，可以看出zcm对topic的痛恨和______痛恨，还是痛恨_________之情（2分）
+        */
+        .wtfcnmsbnmsltopic {
+            background-color: #607d8b;
+            /*cmd：那个，我说一下，vscode有调色板啊啊啊 zcm:主要遵循MDUI配色*/
+            color: #eee;
+            /* cmd：ee（被打*/
+            display: block;
+            text-align: center;
+            padding-top: 200px;
+            padding-bottom: 250px;
+        }
 
-            img{
-                border: 0;
-                border-radius: 20px;
-            }
+        .wtfcnmsbnmsltopic .ht {
+            font-size: 45px;
+            padding-bottom: 25px;
+        }
 
-            a.z{
-                padding-left: 20px;
-                padding-right: 20px;
-                padding-top: 10px;
-                padding-bottom: 10px;
-                color: #fff;
-                background-color: #00ccaa;
-                box-shadow: 0px 3px  3px #00000066;
-                border: 0 solid #00ccaa;
-                border-radius: 3px;
-                transition: all 0.3s linear;
-            }
+        /*
+        cmd：
+        Dr0说，让你看看他的邮箱在不在这里
+        https://imagebed.s3.bitiful.net/jo5JTeclNa_image.png
+        zcm：?什么邮箱
+        cmd：这个图片的，他说他进来了，但我没看见他光标，而且他说他是只读
+        zcm：你等一下 我没注意到他 所以没开权限（
+        cmd：:O
+        zcm：ok
+        cmd: ovo
+        dr0:done
+        */
 
-        </style>
-        <script>
-            function f1(){
-                alert('警告：我们发现了一个漏洞，请尽快安装zzChat 2.12版本更新以恢复正常使用！')
-            }
-        </script>
-    </head>
-    <body>
-        <ul>
-            <li><a href="#" class="top">zzChat</a></li>
-            <li><a href="#1">公告</a></li>
-            <li><a href="#2">下载</a></li>
+        .wtfcnmsbnmsltopic .st {
+            font-size: x-small;
+        }
+
+        /*
+        cmd：3.zcm的css看起来非常礼貌，可以看出zcm对topic的痛恨和______痛恨，还是痛恨_________之情（2分）
+        */
+    </style>
+</head>
+
+
+
+
+<!--靠这什么，看得我眼花缭乱的-->
+
+<body class="mdui-theme-primary-blue-grey mdui-theme-accent-blue-grey bg"><!--zcm：我看下文档（ 草原来没有black主色 zcm：大框架搞好了 开始整活-->
+
+    <div class="mdui-drawer mdui-drawer-close" id="ldw">
+
+        <ul class="mdui-list">
+            <li class="mdui-list-item mdui-ripple" onclick="location.href='https://www.zzchat.cf'">
+                <i class="mdui-list-item-icon mdui-icon material-icons">account_circle</i>
+                <div class="mdui-list-item-content">开发者</div> <!--cmd：zzChat下载链接是不是（ zcm:会放在正文里-->
+            </li>
+            <li class="mdui-list-item mdui-ripple" onclick="location.href='https://zzchat.cf'">
+                <i class="mdui-list-item-icon mdui-icon material-icons">question_answer</i>
+                <div class="mdui-list-item-content">zzChat聊天室</div>
+            </li>
         </ul>
-        <iframe src="index1.html" frameborder="0" width="100%" height="500"><p class="a">请使用Google Chrome或Mozilla Firefox打开。</p></iframe>
-        <br>
-        <br>
-        <br>
-        <h1>公告</h1><a name="1"></a>
-        <br>
-        <div class="b">
-            <div class="c"><strong>注意</strong></div>
-            <br>
-            <div class="d">zzChat从2022年1月17日起由日更转为不定期更新。</div>
+
+    </div>
+
+    <!--cmd：在吗，我突然想在你的主页加一个时钟（ zcm:6（6）9（6翻了）7（6死了） cmd：可以吗（ee画的 zcm：请自便 但得等我先搞好（ cmd：没逝，就是js代码（）-->
+    <div class="mdui-toolbar mdui-color-theme">
+        <a mdui-drawer="{target: '#ldw'}" href="javascript:;" class="mdui-btn mdui-btn-icon">
+            <i class="mdui-icon material-icons">menu</i>
+        </a>
+        <span class="mdui-typo-title">zzChat App</span>
+        <div class="mdui-toolbar-spacer"></div>
+        <a mdui-menu="{target: '#mmenu'}" href="javascript:;" class="mdui-btn mdui-btn-icon">
+            <i class="mdui-icon material-icons">more_vert</i>
+        </a>
+
+        <ul class="mdui-menu" id="mmenu"> <!--cmd：靠，mmenu，同款叠词 zcm:=main-menu cmd：哦，那没事了-->
+            <li class="mdui-menu-item">
+                <!--建议聊天的注释删除掉，只保留代码解释的注释--><!--这是一个很好的纪念--><!--awa-->
+                <a href="mailto:chumo@zzcm.fun" class="mdui-ripple">反馈</a><!--但是已经有注释年久失修了（-->
+            </li>
+            <li class="mdui-menu-item"> <!--cmd：不是为什么href不直接写#，而是写javasceipt:;，不过各有各的好处吧 zcm:我不到啊 我复制的（-->
+                <a href="javascript:;" mdui-dialog="{target: '#mdd'}" class="mdui-ripple">关于</a>
+                <!--cmd：靠，sign，你要写登录系统吗 ._. zcm:想多了 我复制的（ cmd：话说你等一会会不会把注释全部清空啊（ zcm:不会（ cmd：好诶！-->
+            </li>
+        </ul>
+
+    </div>
+
+    <div class="mdui-dialog" id="mdd">
+        <div class="mdui-dialog-title">关于</div>
+        <div class="mdui-dialog-content">zzChat App是一款集成多个聊天室的聊天室客户端。<br><br>该页面基于<a
+                href="https://mdui.org">MDUI</a>编写。<br>感谢<a href="https://thz.cool">Maggie</a>和<a
+                href="http://cmd1152.ysepan.com/">cmd1152</a>对本页的协助修改和润色。</div>
+        <!--cmd：诶好像有我 zcm：我ctrl好像被我敲失灵了（ cmd：没事，可以右键复制代码或屏幕键盘（-->
+        <div class="mdui-dialog-actions"><!--cmd：187行我整了个愚人节时执行的js代码啊，你可以看看-->
+            <button class="mdui-btn mdui-ripple" mdui-dialog-close>OK</button>
         </div>
-	<div class="b">
-            <div class="c"><strong>注意</strong></div>
-            <br>
-            <div class="d">该页面将于2023年5月20日（暂定）进行重写。</div>
-        </div>
-        <br>
-        <br>
-        <h1>下载zzChat Premium</h1><a name="2"></a>
-        <p class="b">zzChat Premium是zzChat的升级版，是一个使用WebSocket的真正的客户端。在zzChat Premium发布以后，zzChat将被取代，不再更新。</p>
-        <div class="c"><strong>Android</strong></div>
-        <a class="b" href="download.html">zzChat v2.41 Android(x86,ARM)</a><br>
-	<br>
-	<div class="c"><strong>Linux</strong></div>
-	<a class="b" href="https://drive.zzcm.fun/s/Wr2Sg">zzChat v3.3.1 Debian(AMD64)</a>
-	    <p class="b">*RedHat系及Arch系均可通过软件源获取dpkg以安装该deb包。</p>
-	<br>
-	<div class="c"><strong>Windows</strong></div>
-	<a class="b" href="https://drive.zzcm.fun/s/eRgsn">zzChat v3.3.1 Windows(x86)</a>
-        <br>
-        <br>
-        <h1>下载zzChat Lite</h1>
-        <p class="b">zzChat Lite中没有任何附加项，仅保留最核心的聊天功能。当然，它的大小只有不到2MB。</p>
-        <div class="c"><strong>Android</strong></div>
-        <a class="b" href="1.apk" download="1.apk">zzChat Lite v2.12 for Android(x86,ARM)</a>
-        <br>
-        <br>
-        <h1>更新日志</h1>
-        <a href="main.html" class="b">更新日志发布页</a>
-        <br>
-        <br>
-    </body>
-    <footer>
-        <br>
-        <div class="d">©Copyright 2017-2023 GS Team<br>感谢<a href="http://blog.thz.cool">Maggie</a>为我们提供各种支持</div>
-        <br>
-    </footer>
+    </div>
+
+    <div class="wtfcnmsbnmsltopic mdui-ripple">
+        <div class="ht">zzChat App</div>
+        <div class="st">一款简洁的多聊天室客户端</div>
+    </div>
+
+    <br>
+    <br>
+    <br>
+
+    <h1>zzChat for Desktop</h1>
+    <p>zzChat for Desktop是一款专为桌面设备适配的zzChat客户端，支持Windows和Linux。</p>
+    <!--cmd：没做各个版本的区分吗，比如max、windows（  zcm：做了 你看原版-->
+    <p>
+        <strong>Windows</strong><br>
+        <a class="pasb" href="https://drive.zzcm.fun/s/eRgsn">zzChat V3.3.1 Windows x86_64</a> <!--直接网盘是不是（-->
+        <!--
+            cmd：能不能整个类似Nodejs那种表格（?） 
+            zcm：啥（ 
+            dr0：是不是console.table
+            cmd：https://nodejs.org/en/download 抄袭……哦不，是借鉴一下这个下载页面（ 
+            zcm：可以整但我懒（
+        -->
+
+
+        <br><br>
+        <style>
+            /*
+                cmd：zcm传统艺能：文明的css
+            */
+            .pasb {
+                text-decoration: none;
+                line-height: 2;
+                color: #4ad;
+            }
+
+            /*                         ↑ cmd：6，你搁这崩浏览器呢？
+                        */
+
+            footer {
+                background-color: #607d8b;
+                color: #eee;
+                display: block;;
+                text-align: center
+                ;
+/*这是啥样式（）*/            }
+        </style>
+
+        <strong>Linux</strong><br>
+        <a class="pasb" href="https://drive.zzcm.fun/s/Wr2Sg">zzChat V3.3.1 DEB AMD64</a><br>
+        *非Debian系发行版可通过系统包管理器安装<b>dpkg</b>后再使用<b>dpkg</b>进行安装
+        <!--
+            cmd：dpg（幻视
+            dr0：9
+            cmd：感觉字母加粗会好看一点点
+            dr0：我可以用console.log整点活吗（
+            
+        -->
+    </p>
+
+    <br>
+    <br>
+
+    <h1>zzChat Premium</h1>
+    <p>zzChat Premium适用于Android设备。目前已长时间未维护，不建议使用。</p>
+    <p>
+        <strong>Android</strong><br>
+        <a class="pasb" href="https://app.zzchat.cf/download.html">zzChat V2.41 Android armeabi-v7a</a>
+    </p>
+
+    <br>
+    <br>
+
+    <h1>zzChat Lite</h1>
+    <p>zzChat Lite大大缩小了安装包体积，使用Android System WebView进行渲染。当然，这也会带来一些兼容性问题。</p>
+    <p>
+        <strong>Android</strong><br>
+        <a class="pasb" href="https://app.zzchat.cf/1.apk">zzChat V2.12 Android armeabi-v7a</a><br>
+        *不兼容Android 12及以上系统
+    </p>
+
+    <br>
+    <br>
+
+    <h1>更新日志</h1>
+    <p><a class="pasb" href="main.html">更新日志发布页</a></p>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+</body>
+<footer>
+    <br>
+    <p>&copy;Copyright 2023 zzChumo.All rights reserved.</p>
+    <br>
+</footer>
+<!--OSMe: e，咋不放head里（）zcm：会导致无法识别到元素-->
+<script src="mdui.js"></script><!--cmd：对mdui情有独钟是不是（ zcm：第二次用 懒得用GAF了-->
+<!--cmd：script真就一点没有呗（被打-->
+<script>
+    //cmd：放个和zcm之前差不多的离开标签页显示应用摸鱼中……
+    document.addEventListener('visibilitychange', function () {
+        if (document.visibilityState == 'hidden') {
+            normal_title = document.title; //cmd：我网盘就是这个，不会显示为 undefined
+            document.title = 'zzChat App | 网页摸鱼中...';
+        } else document.title = normal_title;
+    });
+    //cmd：一个时钟awa（Dr0提供时钟api，ee提供素材）
+    //cmd：这个是嵌入url函数啊（“嵌入的URL地址”，“一个坐标”，“宽”，“高”）
+    //zcm：坐和放宽（？
+    //（cmd表示zcm很6）
+    function createFloatingIframe(url, position = { x: 0, y: 0 }, width = 400, height = 300) {
+        // 创建包含 iframe 的容器元素
+        var container = document.createElement("div");
+
+        // 设置容器样式
+        container.style.position = "fixed";
+        container.style.top = position.y + "px";
+        container.style.left = position.x + "px";
+        container.style.width = width + "px";
+        container.style.height = height + "px";
+        container.style.userSelect = 'none';
+
+
+        /*
+        cpntainer：我将在人人之上，在第114514层（？
+        zcm:6
+        */
+        container.style.zIndex = '114514';
+
+
+
+        // 创建透明的拖动区域元素
+        var handle = document.createElement("div");
+        handle.style.position = 'absolute';
+        handle.style.top = '0px';
+        handle.style.left = '0px';
+        handle.style.width = "100%";
+        handle.style.height = "100%";
+        handle.style.backgroundColor = "transparent";
+        handle.style.cursor = "move";
+
+        // 创建 iframe 元素
+        var iframe = document.createElement("iframe");
+        iframe.style.width = "100%";
+        iframe.style.height = "100%";
+        iframe.style.border = "none";
+
+        iframe.src = url;
+        iframe.scrolling = "no";
+
+        // 将 iframe 添加到容器中
+        container.appendChild(iframe);
+        // 将透明的拖动区域元素添加到容器中
+        container.appendChild(handle);
+
+        // 实现拖动效果
+        var isDragging = false;
+        var mouseOffset = { x: 0, y: 0 };
+
+        handle.addEventListener("mousedown", startDrag);
+        /*
+        开始
+             拖
+                动
+        */
+        function startDrag(event) {
+            isDragging = true;
+            mouseOffset.x = event.pageX - container.offsetLeft;
+            mouseOffset.y = event.pageY - container.offsetTop;
+            document.addEventListener("mousemove", doDrag);
+            document.addEventListener("mouseup", stopDrag);
+        }
+        /*
+        正在拖动
+                  ing
+        */
+        function doDrag(event) {
+            if (!isDragging) return;
+            var x = event.pageX - mouseOffset.x;
+            var y = event.pageY - mouseOffset.y;
+            // console.log({ x, y });
+            //console.log({ x: x > document.body.offsetWidth - width, y: y > document.body.offsetHeight - height });
+            if (x < window.innerWidth - width && x > 0)
+                container.style.left = x + "px";
+            if (y < window.innerHeight - height && y > 0)
+                container.style.top = y + "px";
+
+        }
+        /*
+        不拖了（？
+        */
+        function stopDrag() {
+            isDragging = false;
+            document.removeEventListener("mousemove", doDrag);
+            document.removeEventListener("mouseup", stopDrag);
+        }
+
+        // 将容器添加到页面
+        document.body.appendChild(container);
+
+        // 返回 iframe 元素
+        return iframe;
+    }
+
+    //cmd：这个是创建时钟的
+    function CreatClock(skin = 'ee') {
+        let all = ['ee', 'zhc'].includes(skin) ? 180 : 130;
+        //cmd：Dr0的api :D
+        createFloatingIframe("https://1145.s3.bitiful.net/clock/clock.html?" + skin,
+            { x: document.body.offsetWidth - all, y: document.body.offsetHeight / 2 }
+            , all, all);
+    }
+
+    CreatClock();
+    console.log('逸一时，误一世！');
+    /*
+    cmd：直接使用默认ee时钟awa
+    关于我选择到底用什么皮肤改了这里3分钟（    
+    皮肤列表：https://1145.s3.bitiful.net/clock/clockList.html
+    */
+    const padZero = () => num.toString().padStart(2, '0');
+    //cmd：愚人节彩蛋AwA!!!
+    const formatawaDate =(d)=> {
+        return `${d.getMouth()+1}${d.getDay()+1}`;
+    };Month // d名其妙    //zcm：你们快点改error 我主体完工了（
+    //zcm：吃饭去了
+ trin    //日你妈愚人节 搞得一大堆误
+    /*
+    
+  
+    osme:挂友链不（小声）  cmd：
+    cookies有关的，先放这，也许以得上（写登录【划掉】） qaq
+    */
+    //设置cookies（“cookies名称”，“coies值”，“有效时间（毫秒）”）
+    /*
+    OSMe:但是你这个是不是没考虑过如果有多个cookie如何处理（）
+    document.cookie += cname + "=" + cvalue + "; " + expires;
+    这样？
+    */
+    function setCookie(cname, cvalue, extimes) {
+        var d = new Date();
+        d.setTime(d.getTime() + (extimes));
+        var expires = "expires=" + d.toGMTString();
+        document.cookie = cname + "=" + cvalue + "; " + expires;
+    }
+    //获取cookies（“cookies名称”）
+    function getCookie(cname) {
+        var name = cname + "=";
+        var ca = document.cookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i].trim();
+            if (c.indexOf(name) == 0) { return c.substring(name.length, c.length); }
+        }
+        return ""; //没找到，送给你个美丽的肿瘤quq
+    }
+</script>
+
 </html>
